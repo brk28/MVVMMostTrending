@@ -19,22 +19,21 @@ class APIAuthentifikation: APIAuthentificationProtocol{
     private var consumerKey: String
     private var consumerSecret: String
     
+    private var bearerToken: String?
+    
     init(consumerKey: String, consumerSecret: String) {
         self.consumerKey = consumerKey
         self.consumerSecret = consumerSecret
     }
-    
-    func encodeBase64(credentials: String) -> String {
-        return Data(credentials.utf8).base64EncodedString()
-    }
-    
-    func concatenateToBearerTokenCredentials(key: String, secret: String) -> String {
-        let concStr = "\(key):\(secret)"
-        return concStr
-    }
+
     
     
     func obtainBearerToken(completion: @escaping (_ token: String?) -> Void) {
+        
+        if bearerToken != nil {
+            completion(bearerToken)
+            return
+        }
         
         guard let url = URL(string: authenticationURL) else { return }
         let request = getTokenRequest(url: url)
@@ -54,6 +53,7 @@ class APIAuthentifikation: APIAuthentificationProtocol{
                 return
             }
             token = self.parseToken(data: data)
+            self.bearerToken = token
         }
         postTask.resume()
     }
@@ -83,6 +83,15 @@ class APIAuthentifikation: APIAuthentificationProtocol{
         let postBody = "grant_type=client_credentials"
         request.httpBody = postBody.data(using: .utf8)
         return request
+    }
+    
+    private func encodeBase64(credentials: String) -> String {
+        return Data(credentials.utf8).base64EncodedString()
+    }
+    
+    private func concatenateToBearerTokenCredentials(key: String, secret: String) -> String {
+        let concStr = "\(key):\(secret)"
+        return concStr
     }
     
 }
