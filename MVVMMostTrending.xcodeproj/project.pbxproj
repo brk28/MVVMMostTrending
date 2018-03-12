@@ -74,6 +74,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0647438920569F3700C96CE3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0690B6E12047EFD30017751B /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0647438A20569F4800C96CE3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				06D49C0C2052C809000EA7A8 /* Trends.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0647438B20569F5200C96CE3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0690B6CA2047EF3A0017751B /* LaunchScreen.storyboard */,
+				0690B6C52047EF3A0017751B /* Main.storyboard */,
+				0690B6C32047EF3A0017751B /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		0690B6B52047EF3A0017751B = {
 			isa = PBXGroup;
 			children = (
@@ -97,15 +123,13 @@
 		0690B6C02047EF3A0017751B /* MVVMMostTrending */ = {
 			isa = PBXGroup;
 			children = (
+				0647438B20569F5200C96CE3 /* ViewController */,
+				0647438A20569F4800C96CE3 /* Model */,
+				0647438920569F3700C96CE3 /* ViewModel */,
 				06D49C0B2052C63D000EA7A8 /* Services */,
 				0690B6C12047EF3A0017751B /* AppDelegate.swift */,
-				0690B6C32047EF3A0017751B /* ViewController.swift */,
-				0690B6C52047EF3A0017751B /* Main.storyboard */,
 				0690B6C82047EF3A0017751B /* Assets.xcassets */,
-				0690B6CA2047EF3A0017751B /* LaunchScreen.storyboard */,
 				0690B6CD2047EF3A0017751B /* Info.plist */,
-				0690B6E12047EFD30017751B /* ViewModel.swift */,
-				06D49C0C2052C809000EA7A8 /* Trends.swift */,
 			);
 			path = MVVMMostTrending;
 			sourceTree = "<group>";

@@ -8,6 +8,7 @@
 
 import UIKit
 import Bond
+import SafariServices
 
 class ViewController: UIViewController {
     
@@ -27,6 +28,21 @@ class ViewController: UIViewController {
         })
     }
         
+}
+
+extension ViewController: UITableViewDelegate, SFSafariViewControllerDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let url = URL(string: viewModel.trends[indexPath.row].url) else { return }
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.delegate = self
+        present(safariVC, animated: true, completion: nil)
+    }
+    
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 
