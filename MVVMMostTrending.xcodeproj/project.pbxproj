@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0647438D2057C47B00C96CE3 /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0647438C2057C47B00C96CE3 /* AppProvider.swift */; };
 		0690B6C22047EF3A0017751B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0690B6C12047EF3A0017751B /* AppDelegate.swift */; };
 		0690B6C42047EF3A0017751B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0690B6C32047EF3A0017751B /* ViewController.swift */; };
 		0690B6C72047EF3A0017751B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0690B6C52047EF3A0017751B /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0647438C2057C47B00C96CE3 /* AppProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProvider.swift; sourceTree = "<group>"; };
 		0690B6BE2047EF3A0017751B /* MVVMMostTrending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMMostTrending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0690B6C12047EF3A0017751B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0690B6C32047EF3A0017751B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				0690B6C12047EF3A0017751B /* AppDelegate.swift */,
 				0690B6C82047EF3A0017751B /* Assets.xcassets */,
 				0690B6CD2047EF3A0017751B /* Info.plist */,
+				0647438C2057C47B00C96CE3 /* AppProvider.swift */,
 			);
 			path = MVVMMostTrending;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				06FFC5B22047F7BD00F78600 /* APIAuthentification.swift in Sources */,
 				0690B6E22047EFD30017751B /* ViewModel.swift in Sources */,
 				06D49C0D2052C809000EA7A8 /* Trends.swift in Sources */,
+				0647438D2057C47B00C96CE3 /* AppProvider.swift in Sources */,
 				06D49C0A2052C5BE000EA7A8 /* APIRestClient.swift in Sources */,
 				0690B6C22047EF3A0017751B /* AppDelegate.swift in Sources */,
 			);

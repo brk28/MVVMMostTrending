@@ -14,16 +14,20 @@ class ViewController: UIViewController {
     
     let viewModel: ViewModel = ViewModel()
     
+    let tableViewCellIdentifier = "trendsCell"
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let apiAuthentification = APIAuthentifikation(consumerKey: "p3JJLoAw9NsIOVvu5w5GiNQjZ", consumerSecret: "1XS34O67qXpqCqMO59Ye3WY4zZkeAGXR8xz38kFonFtIFb15UG")
-        viewModel.fetchTrends(restClient: APIRestClient(), apiAuth: apiAuthentification)
+        setupTableView()
+    }
+    
+    private func setupTableView() {
+        viewModel.fetchTrends(restClient: AppProvider.restClient)
         viewModel.trends.bind(to: tableView, animated: true, createCell: { (trends, indexPath, tableView) -> UITableViewCell in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "trendsCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: self.tableViewCellIdentifier, for: indexPath)
             cell.textLabel?.text = trends[indexPath.row].name
-            cell.detailTextLabel?.text = "\(trends[indexPath.row].tweet_volume ?? 0)"
+            cell.detailTextLabel?.text = "\(trends[indexPath.row].tweetVolume ?? 0)"
             return cell
         })
     }

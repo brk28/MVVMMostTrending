@@ -11,10 +11,17 @@ import Foundation
 typealias TrendResponse = [Entry]
 
 struct Entry: Codable {
-    let trends: [Trend]?
-    let as_of: String
-    let created_at: String
-    let locations: [Location]?
+    let trends: [Trend]
+    let asOf: String
+    let createdAt: String
+    let locations: [Location]
+    
+    enum CodingKeys: String, CodingKey {
+        case trends
+        case asOf = "as_of"
+        case createdAt = "created_at"
+        case locations
+    }
 }
 
 struct Location: Codable {
@@ -25,7 +32,15 @@ struct Location: Codable {
 struct Trend: Codable {
     let name: String
     let url: String
-    let promoted_content: String?
+    let promotedContent: String?
     let query: String
-    let tweet_volume: Int?
+    let tweetVolume: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case url
+        case promotedContent = "promoted_content"
+        case query
+        case tweetVolume = "tweet_volume"
+    }
 }

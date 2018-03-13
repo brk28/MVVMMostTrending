@@ -9,17 +9,18 @@
 import Foundation
 
 protocol APIRestClientProtocol {
-    func obtainTrends(apiAuth: APIAuthentificationProtocol, completion: @escaping (Entry?) -> Void)
+    func obtainTrends(completion: @escaping (Entry?) -> Void)
 }
-
 
 class APIRestClient: APIRestClientProtocol {
 
-    func obtainTrends(apiAuth: APIAuthentificationProtocol, completion: @escaping (Entry?) -> Void) {
+    let apiAuthentification = APIAuthentifikation(consumerKey: "p3JJLoAw9NsIOVvu5w5GiNQjZ", consumerSecret: "1XS34O67qXpqCqMO59Ye3WY4zZkeAGXR8xz38kFonFtIFb15UG")
+    
+    func obtainTrends(completion: @escaping (Entry?) -> Void) {
         
         guard let url = URL(string: "https://api.twitter.com/1.1/trends/place.json?id=1") else { return }
         
-        apiAuth.obtainBearerToken { (token) in
+        apiAuthentification.obtainBearerToken { (token) in
             guard let validToken = token else { return }
             let request = self.getTrendingRequest(url: url, bearerToken: validToken)
             let getTask = URLSession.shared.dataTask(with: request) { (data, response, error) in

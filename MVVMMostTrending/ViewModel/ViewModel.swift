@@ -12,17 +12,15 @@ import Bond
 class ViewModel {
     
     var trends: MutableObservableArray<Trend> = MutableObservableArray([])
-    
-    func fetchTrends(restClient: APIRestClientProtocol, apiAuth: APIAuthentificationProtocol) {
-        restClient.obtainTrends( apiAuth: apiAuth) { (entry) in
-            guard let entry = entry, let trends = entry.trends else {
+  
+    func fetchTrends(restClient: APIRestClientProtocol) {
+        restClient.obtainTrends { (entry) in
+            guard let entry = entry else {
                 print("Some Error Handling")
                 return
             }
             self.trends.batchUpdate({ (observableTrends) in
-                for item in trends {
-                    observableTrends.append(item)
-                }
+                entry.trends.forEach { observableTrends.append($0) }
             })
             
         }
